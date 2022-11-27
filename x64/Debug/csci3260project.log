@@ -1,0 +1,65 @@
+﻿  Source.cpp
+D:\vscode\CSCI3260Project\Source.cpp(49,15): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(189,12): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(192,12): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(195,12): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(198,12): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(201,12): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(204,12): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(208,13): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(211,13): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(214,13): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(217,13): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(220,13): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(223,13): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(232,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(233,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(237,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(238,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(242,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(243,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(247,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(248,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(271,9): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(619,28): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(673,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(725,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(777,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(829,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(882,31): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(909,33): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(913,21): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(976,18): warning C4244: '正在初始化': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+  csci3260project.vcxproj -> D:\vscode\CSCI3260Project\x64\Debug\csci3260project.exe

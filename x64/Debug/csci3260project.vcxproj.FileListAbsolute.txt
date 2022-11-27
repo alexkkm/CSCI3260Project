@@ -1,0 +1,2 @@
+C:\Users\user\source\repos\csci3260project\x64\Debug\csci3260project.exe
+D:\vscode\CSCI3260Project\x64\Debug\csci3260project.exe
