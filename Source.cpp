@@ -1,3 +1,12 @@
+/*
+Student Information
+Student ID: 1155125979
+Student Name: KONG Kwai Man
+
+Student ID: 1155157839
+Student Name: NG Yu Chun Thomas
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include "Dependencies\glew\glew.h"
 #include "Dependencies\freeglut\freeglut.h"
@@ -46,12 +55,12 @@ glm::vec3 SC_local_front = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 SC_local_right = glm::vec3(1.0f, 0.0f, 0.0f);
 glm::vec3 SC_local_pos = glm::vec3(0.0f, 0.0f, 0.0f);
 glm::vec3 Camera_local_position = glm::vec3(5.0f, 5.0f, 5.0f);
-float kd = 0.3;
-float ks = 1.0;
-float ka = 1.0;
-float kd1 = 0.0;
-float ks1 = 0.0;
-float ka1 = 0.0;
+float kd = 0.3;		// diffuse reflection coefficient for 1st light source
+float ks = 1.0;		// specular reflection coefficient for 1st light source
+float ka = 1.0;		// ambient reflection coefficient for 1st light source
+float kd1 = 0.0;	// diffuse reflection coefficient for 2nd light source
+float ks1 = 0.0;	// specular reflection coefficient for 2nd light source
+float ka1 = 0.0;	// ambient reflection coefficient for 2nd light source
 int textureNum = 0;
 float angle = 0.0;
 float angleWP = 0.0f;
@@ -183,6 +192,7 @@ int installShaders(const char* vertexShader, const char* fragmentShader)
 	return program;
 }
 
+// keyboard interaction to adjust the light source
 void keyboard(unsigned char key, int x, int y)
 {	//first light source
 	if (key == 'q') {
@@ -295,6 +305,7 @@ bool loadOBJ(
 		return false;
 	}
 
+	// process the object file
 	while (1) {
 
 		char lineHeader[128];
@@ -369,7 +380,7 @@ bool loadOBJ(
 }
 
 
-
+// Function for loading the BMP image
 GLuint loadBMP_custom(const char* imagepath) {
 
 	printf("Reading image %s\n", imagepath);
@@ -407,7 +418,7 @@ GLuint loadBMP_custom(const char* imagepath) {
 
 
 	GLuint textureID;
-	//TODO: Create one OpenGL texture and set the texture parameter 
+	// Create one OpenGL texture and set the texture parameter 
 	glGenTextures(1, &textureID);
 	// "Bind" the newly created texture : all future texture functions will modify this texture
 	glBindTexture(GL_TEXTURE_2D, textureID);
@@ -909,6 +920,7 @@ void sendDataToOpenGL()
 	drawSizeRock = Rvertices.size();
 }
 
+// For undating the screen when trigging any keyboard/mouse input
 void UpdateStatus() {
 	float scale = 0.005;
 	glm::mat4 SC_scale_M = glm::scale(glm::mat4(1.0f), glm::vec3(scale));
@@ -937,21 +949,18 @@ void UpdateStatus() {
 		glm::mat4(1.0f),
 		glm::vec3(SC_trans_M[3].x, SC_trans_M[3].y, SC_trans_M[3].z)
 	);
-	//printf("%f, %f, %f, %f\n", Camera_trans_M[3].x, Camera_trans_M[3].y, Camera_trans_M[3].z, Camera_trans_M[3].w);
 	SC_TransformMatrix = SC_trans_M * SC_Rot_M * SC_scale_M;
 	Camera_TransformMatrix = Camera_trans_M2 * Cam_Rot_M * Camera_trans_M1;
 	Cam_point_pos = Camera_point_M2 * Cam_Pt_Rot_M * Camera_point_M1 * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	//printf("%f, %f, %f\n", Cam_point_pos.x, Cam_point_pos.y, Cam_point_pos.z);
 	SC_world_pos = SC_trans_M * glm::vec4(SC_local_pos, 1.0f);
 	SC_world_Front_Direction = SC_TransformMatrix * glm::vec4(SC_local_front, 0.0f);
 	SC_world_Right_Direction = SC_TransformMatrix * glm::vec4(SC_local_right, 0.0f);
 	SC_world_Front_Direction = normalize(SC_world_Front_Direction);
 	SC_world_Right_Direction = normalize(SC_world_Right_Direction);
 	Camera_world_position = Camera_TransformMatrix * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	//printf("%f, %f, %f\n", Camera_world_position.x, Camera_world_position.y, Camera_world_position.z);
-	//camera
 }
 
+// For creating the random model for the rocks ring
 void CreateRand_ModelM() {
 
 	srand(glutGet(GLUT_ELAPSED_TIME));
@@ -987,7 +996,6 @@ void CreateRand_ModelM() {
 
 void paintGL(void)
 {
-	//TODO:
 	//Set lighting information, such as position and color of lighting source
 	//Set transformation matrix
 	//Bind different textures
@@ -1075,22 +1083,22 @@ void paintGL(void)
 	vec3 eyePosition = vec3(Camera_world_position);
 	glUniform3fv(eyePositionUniformLocation, 1, &eyePosition[0]);
 
-	GLint kdLocation = glGetUniformLocation(programID, "kd");
+	GLint kdLocation = glGetUniformLocation(programID, "kd");	// diffuse reflection coefficient for first light source
 	glUniform1f(kdLocation, kd);
 
-	GLint ksLocation = glGetUniformLocation(programID, "ks");
+	GLint ksLocation = glGetUniformLocation(programID, "ks");	// specular reflection coefficient for first light source
 	glUniform1f(ksLocation, ks);
 
-	GLint kaLocation = glGetUniformLocation(programID, "ka");
+	GLint kaLocation = glGetUniformLocation(programID, "ka");	// ambient reflection coefficient for first light source
 	glUniform1f(kaLocation, ka);
 
-	GLint kd1Location = glGetUniformLocation(programID, "kd1");
+	GLint kd1Location = glGetUniformLocation(programID, "kd1");	// diffuse reflection coefficient for second light source
 	glUniform1f(kd1Location, kd1);
 
-	GLint ks1Location = glGetUniformLocation(programID, "ks1");
+	GLint ks1Location = glGetUniformLocation(programID, "ks1");	// specular reflection coefficient for second light source
 	glUniform1f(ks1Location, ks1);
 
-	GLint ka1Location = glGetUniformLocation(programID, "ka1");
+	GLint ka1Location = glGetUniformLocation(programID, "ka1");	// ambient reflection coefficient for second light source
 	glUniform1f(ka1Location, ka1);
 
 	glm::mat4 modelTransformMatrix = glm::mat4(1.0f);
@@ -1309,7 +1317,7 @@ int main(int argc, char* argv[])
 	glutInitWindowSize(1080, 720);
 	glutCreateWindow("Assignment 2");
 	CreateRand_ModelM();
-	//TODO:
+
 	/*Register different CALLBACK function for GLUT to response
 	with different events, e.g. window sizing, mouse click or
 	keyboard stroke */
