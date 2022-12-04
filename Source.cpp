@@ -72,6 +72,12 @@ int spin = 0;
 float SC_spinAngle = -110.0f;
 float Cam_spinAngle = 25.0f;
 float planetSpinAngle = 0.0f;
+float ufo1_x = 0.0f;
+float ufo2_x = 0.0f;
+float ufo3_x = 0.0f;
+bool ufo1_isLeft = true;
+bool ufo2_isLeft = true;
+bool ufo3_isLeft = true;
 glm::vec2 mousePosition = glm::vec2(256.0, 256.0);
 float oldx = 256.0;
 float roll = 0.0;
@@ -1135,7 +1141,7 @@ void paintGL(void)
 	glBindVertexArray(vao[0]);
 
 	GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler"); //texture handling
-	if ((glm::distance(glm::vec3(SC_world_pos), glm::vec3(0.0f, 0.0f, 0.0f)) < 7.0f) || (glm::distance(glm::vec3(SC_world_pos), glm::vec3(0.0f, 0.0f, -30.0f)) < 7.0f) || (glm::distance(glm::vec3(SC_world_pos), glm::vec3(0.0f, 0.0f, -60.0f)) < 7.0f)) {	//if the space craft is less than 5.0f apart from the ufos, the spacecraft texture will become green
+	if ((glm::distance(glm::vec3(SC_world_pos), glm::vec3(ufo1_x, 0.0f, 0.0f)) < 7.0f) || (glm::distance(glm::vec3(SC_world_pos), glm::vec3(ufo2_x, 0.0f, -30.0f)) < 7.0f) || (glm::distance(glm::vec3(SC_world_pos), glm::vec3(ufo3_x, 0.0f, -60.0f)) < 7.0f)) {	//if the space craft is less than 5.0f apart from the ufos, the spacecraft texture will become green
 		glActiveTexture(GL_TEXTURE6);
 		glBindTexture(GL_TEXTURE_2D, texture3);
 		glUniform1i(TextureID, 6);
@@ -1159,7 +1165,7 @@ void paintGL(void)
 	glBindVertexArray(vao[1]);
 
 	GLuint TextureID1 = glGetUniformLocation(programID, "myTextureSampler"); //texture handling
-	if (glm::distance(glm::vec3(SC_world_pos), glm::vec3(0.0f, 0.0f, 0.0f)) < 7.0f) {	// if the UFO is less than 5.0f apart from the space craft, the colour turns to green
+	if (glm::distance(glm::vec3(SC_world_pos), glm::vec3(ufo1_x, 0.0f, 0.0f)) < 7.0f) {	// if the UFO is less than 5.0f apart from the space craft, the colour turns to green
 		glActiveTexture(GL_TEXTURE6);
 		glBindTexture(GL_TEXTURE_2D, texture3);
 		glUniform1i(TextureID1, 6);
@@ -1172,20 +1178,25 @@ void paintGL(void)
 
 	translationMatrix = glm::translate(glm::mat4(),
 		glm::vec3(0.0f, 0.0f, 0.0f));;
+	translationMatrix2 = glm::translate(glm::mat4(),
+		glm::vec3(ufo1_x, 0.0f, 0.0f));;
 	rotationMatrix = glm::rotate(mat4(), 1.57f, vec3(0, 1, 0));
 	rotationMatrix2 = glm::rotate(mat4(), glm::radians(planetSpinAngle), vec3(0, 1, 0));
 	scaleMatrix = glm::scale(glm::mat4(), glm::vec3(1.0f, 1.0f, 1.0f));	//size of the UFO
-	modelTransformMatrix = translationMatrix * scaleMatrix * rotationMatrix2 * rotationMatrix;
+	modelTransformMatrix = translationMatrix2 * translationMatrix * scaleMatrix * rotationMatrix2 * rotationMatrix;
 	glUniformMatrix4fv(modelTransformMatrixUniformLocation, 1,
 		GL_FALSE, &modelTransformMatrix[0][0]);
 	glDrawArrays(GL_TRIANGLES, 0, drawSize2);
 
+	if (ufo1_isLeft && ufo1_x < -50.0f) ufo1_isLeft = false;
+	else if (!ufo1_isLeft && ufo1_x > +50.0f) ufo1_isLeft = true;
+	ufo1_x += (ufo1_isLeft ? -1.0f : +1.0f) * 0.2f;
 
 	//draw for 2nd ufo vao[2]
 	glBindVertexArray(vao[2]);
 
 	GLuint TextureID2 = glGetUniformLocation(programID, "myTextureSampler"); //texture handling
-	if (glm::distance(glm::vec3(SC_world_pos), glm::vec3(0.0f, 0.0f, -30.0f)) < 7.0f) {
+	if (glm::distance(glm::vec3(SC_world_pos), glm::vec3(ufo2_x, 0.0f, -30.0f)) < 7.0f) {
 		glActiveTexture(GL_TEXTURE6);
 		glBindTexture(GL_TEXTURE_2D, texture3);
 		glUniform1i(TextureID2, 6);
@@ -1198,19 +1209,25 @@ void paintGL(void)
 
 	translationMatrix = glm::translate(glm::mat4(),
 		glm::vec3(0.0f, 0.0f, -30.0f));;
+	translationMatrix2 = glm::translate(glm::mat4(),
+		glm::vec3(ufo2_x, 0.0f, 0.0f));;
 	rotationMatrix = glm::rotate(mat4(), 1.57f, vec3(0, 1, 0));
 	rotationMatrix2 = glm::rotate(mat4(), glm::radians(planetSpinAngle), vec3(0, 1, 0));
 	scaleMatrix = glm::scale(glm::mat4(), glm::vec3(1.0f, 1.0f, 1.0f));
-	modelTransformMatrix = translationMatrix * scaleMatrix * rotationMatrix2 * rotationMatrix;
+	modelTransformMatrix = translationMatrix2 * translationMatrix * scaleMatrix * rotationMatrix2 * rotationMatrix;
 	glUniformMatrix4fv(modelTransformMatrixUniformLocation, 1,
 		GL_FALSE, &modelTransformMatrix[0][0]);
 	glDrawArrays(GL_TRIANGLES, 0, drawSize3);
+
+	if (ufo2_isLeft && ufo2_x < -50.0f) ufo2_isLeft = false;
+	else if (!ufo2_isLeft && ufo2_x > +50.0f) ufo2_isLeft = true;
+	ufo2_x += (ufo2_isLeft ? -1.0f : +1.0f) * 0.4f;
 
 	//draw for 3rd ufo vao[3]
 	glBindVertexArray(vao[3]);
 
 	GLuint TextureID3 = glGetUniformLocation(programID, "myTextureSampler"); //texture handling
-	if (glm::distance(glm::vec3(SC_world_pos), glm::vec3(0.0f, 0.0f, -60.0f)) < 7.0f) {
+	if (glm::distance(glm::vec3(SC_world_pos), glm::vec3(ufo3_x, 0.0f, -60.0f)) < 7.0f) {
 		glActiveTexture(GL_TEXTURE6);
 		glBindTexture(GL_TEXTURE_2D, texture3);
 		glUniform1i(TextureID3, 6);
@@ -1223,13 +1240,19 @@ void paintGL(void)
 
 	translationMatrix = glm::translate(glm::mat4(),
 		glm::vec3(0.0f, 0.0f, -60.0f));;
+	translationMatrix2 = glm::translate(glm::mat4(),
+		glm::vec3(ufo3_x, 0.0f, 0.0f));;
 	rotationMatrix = glm::rotate(mat4(), 1.57f, vec3(0, 1, 0));
 	rotationMatrix2 = glm::rotate(mat4(), glm::radians(planetSpinAngle), vec3(0, 1, 0));
 	scaleMatrix = glm::scale(glm::mat4(), glm::vec3(1.0f, 1.0f, 1.0f));
-	modelTransformMatrix = translationMatrix * scaleMatrix * rotationMatrix2 * rotationMatrix;
+	modelTransformMatrix = translationMatrix2 * translationMatrix * scaleMatrix * rotationMatrix2 * rotationMatrix;
 	glUniformMatrix4fv(modelTransformMatrixUniformLocation, 1,
 		GL_FALSE, &modelTransformMatrix[0][0]);
 	glDrawArrays(GL_TRIANGLES, 0, drawSize4);
+
+	if (ufo3_isLeft && ufo3_x < -50.0f) ufo3_isLeft = false;
+	else if (!ufo3_isLeft && ufo3_x > +50.0f) ufo3_isLeft = true;
+	ufo3_x += (ufo3_isLeft ? -1.0f : +1.0f) * 0.3f;
 
 	//Earth vao[4]
 	glBindVertexArray(vao[4]);
