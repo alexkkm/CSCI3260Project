@@ -1,1 +1,65 @@
-﻿  csci3260project.vcxproj -> C:\Users\Thomas\OneDrive - The Chinese University of Hong Kong\Desktop\Project\CSCI3260Project\x64\Debug\csci3260project.exe
+﻿  Source.cpp
+D:\vscode\CSCI3260Project\Source.cpp(58,15): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(205,12): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(208,12): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(211,12): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(214,12): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(217,12): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(220,12): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(224,13): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(227,13): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(230,13): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(233,13): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(236,13): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(239,13): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(248,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(249,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(253,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(254,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(258,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(259,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(263,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(264,39): warning C4244: '=': 將 'double' 轉換為 'T'，由於類型不同，可能導致資料遺失
+          with
+          [
+              T=float
+          ]
+D:\vscode\CSCI3260Project\Source.cpp(287,9): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(636,28): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(690,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(742,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(794,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(846,30): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(899,31): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(926,33): warning C4267: '=': 將 'size_t' 轉換為 'GLsizei'，資料可能遺失
+D:\vscode\CSCI3260Project\Source.cpp(931,21): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+D:\vscode\CSCI3260Project\Source.cpp(991,18): warning C4244: '正在初始化': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+  csci3260project.vcxproj -> D:\vscode\CSCI3260Project\x64\Debug\csci3260project.exe
